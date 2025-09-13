@@ -321,16 +321,13 @@ class ApiClient {
   }
 }
 
-// Crear instancia global del cliente API
-const api = new ApiClient();
-
 // Exportar para uso en otros archivos
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { ApiClient, api };
+  module.exports = { ApiClient };
 }
 
 // Hacer disponible globalmente en el navegador
 if (typeof window !== 'undefined') {
-  window.api = api;
+  window.api = new ApiClient();
   window.ApiClient = ApiClient;
 }

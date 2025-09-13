@@ -5,9 +5,6 @@ const navLinks = document.querySelectorAll('.nav-link');
 const skillBars = document.querySelectorAll('.skill-progress');
 const contactForm = document.getElementById('contactForm');
 
-// Initialize API client
-const api = new ApiClient();
-
 // Mobile Navigation Toggle
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
