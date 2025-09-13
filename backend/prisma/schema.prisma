@@ -1,0 +1,89 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      Role     @default(USER)
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relaciones
+  projects Project[]
+  contacts Contact[]
+
+  @@map("users")
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  videoUrl    String?  // URL de YouTube
+  videoTitle  String?
+  repositoryUrl String?
+  technologies String[] // Array de tecnologías
+  isActive    Boolean  @default(true)
+  isFeatured  Boolean  @default(false)
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Relaciones
+  authorId String
+  author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@map("projects")
+}
+
+model Contact {
+  id        String      @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  status    ContactStatus @default(PENDING)
+  isRead    Boolean     @default(false)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+
+  // Relaciones (opcional - para asignar contactos a usuarios)
+  assignedToId String?
+  assignedTo   User?   @relation(fields: [assignedToId], references: [id], onDelete: SetNull)
+
+  @@map("contacts")
+}
+
+model RefreshToken {
+  id        String   @id @default(cuid())
+  token     String   @unique
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@map("refresh_tokens")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum ContactStatus {
+  PENDING
+  IN_PROGRESS
+  RESOLVED
+  CLOSED
+}

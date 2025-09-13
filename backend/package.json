@@ -1,0 +1,62 @@
+{
+  "name": "jose-luis-castro-portfolio-backend",
+  "version": "1.0.0",
+  "description": "Backend API para el portafolio de Jose Luis Castro con autenticación JWT y CRUD",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js",
+    "build": "echo 'No build step required'",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "db:generate": "prisma generate",
+    "db:push": "prisma db push",
+    "db:migrate": "prisma migrate dev",
+    "db:studio": "prisma studio",
+    "db:seed": "node prisma/seed.js",
+    "lint": "eslint . --ext .js",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "portfolio",
+    "api",
+    "express",
+    "jwt",
+    "postgresql",
+    "prisma",
+    "crud"
+  ],
+  "author": {
+    "name": "Jose Luis Castro",
+    "email": "joseluiscastro@email.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "helmet": "^7.1.0",
+    "morgan": "^1.10.0",
+    "dotenv": "^16.3.1",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "express-rate-limit": "^7.1.5",
+    "express-validator": "^7.0.1",
+    "multer": "^1.4.5-lts.1",
+    "@prisma/client": "^5.7.1",
+    "compression": "^1.7.4",
+    "express-async-errors": "^3.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2",
+    "prisma": "^5.7.1",
+    "jest": "^29.7.0",
+    "supertest": "^6.3.3",
+    "eslint": "^8.55.0",
+    "prettier": "^3.1.0",
+    "@types/jest": "^29.5.8"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

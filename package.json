@@ -1,0 +1,26 @@
+{
+  "name": "jose-luis-castro-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio personal de Jose Luis Castro - Desarrollador Backend Java & Científico de Datos",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "cd backend && npm run dev",
+    "build": "cd backend && npm install",
+    "vercel-build": "cd backend && npm install && npx prisma generate"
+  },
+  "keywords": [
+    "portfolio",
+    "backend",
+    "java",
+    "data-science",
+    "express",
+    "prisma",
+    "postgresql"
+  ],
+  "author": "Jose Luis Castro",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
