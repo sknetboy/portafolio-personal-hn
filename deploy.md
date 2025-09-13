@@ -52,6 +52,7 @@ git push -u origin main
    JWT_REFRESH_SECRET=tu-clave-refresh-super-secreta-de-al-menos-32-caracteres
    NODE_ENV=production
    CORS_ORIGIN=https://tu-dominio.vercel.app
+   SUPABASE_KEY=tu-supabase-anon-key
    ```
 
 4. **Deploy**:
@@ -116,6 +117,7 @@ git push -u origin main
 | `JWT_REFRESH_SECRET` | Clave para refresh tokens | `mi-clave-refresh-super-secreta-32` |
 | `NODE_ENV` | Entorno de ejecución | `production` |
 | `CORS_ORIGIN` | Dominio permitido para CORS | `https://mi-portfolio.vercel.app` |
+| `SUPABASE_KEY` | Clave anónima de Supabase | `eyJhbGciOiJIUzI1NiIsInR5cCI6...` |
 
 ## 🚀 Comandos Útiles
 

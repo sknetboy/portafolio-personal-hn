@@ -31,6 +31,7 @@ JWT_SECRET=tu-clave-secreta-jwt-muy-larga-y-segura
 JWT_REFRESH_SECRET=tu-clave-secreta-refresh-muy-larga-y-segura
 NODE_ENV=production
 CORS_ORIGIN=https://tu-dominio.vercel.app
+SUPABASE_KEY=tu-supabase-anon-key
 ```
 
 #### 3. Deploy desde Git
